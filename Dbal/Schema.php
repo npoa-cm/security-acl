@@ -70,7 +70,7 @@ final class Schema extends BaseSchema
     protected function addClassTable()
     {
         $table = $this->createTable($this->options['class_table_name']);
-        $table->addColumn('id', 'integer', array('unsigned' => true, 'autoincrement' => 'auto'));
+        $table->addColumn('id', 'integer', array('unsigned' => true, 'autoincrement' => true));
         $table->addColumn('class_type', 'string', array('length' => 200));
         $table->setPrimaryKey(array('id'));
         $table->addUniqueIndex(array('class_type'));
@@ -83,7 +83,7 @@ final class Schema extends BaseSchema
     {
         $table = $this->createTable($this->options['entry_table_name']);
 
-        $table->addColumn('id', 'integer', array('unsigned' => true, 'autoincrement' => 'auto'));
+        $table->addColumn('id', 'integer', array('unsigned' => true, 'autoincrement' => true));
         $table->addColumn('class_id', 'integer', array('unsigned' => true));
         $table->addColumn('object_identity_id', 'integer', array('unsigned' => true, 'notnull' => false));
         $table->addColumn('field_name', 'string', array('length' => 50, 'notnull' => false));
@@ -111,7 +111,7 @@ final class Schema extends BaseSchema
     {
         $table = $this->createTable($this->options['oid_table_name']);
 
-        $table->addColumn('id', 'integer', array('unsigned' => true, 'autoincrement' => 'auto'));
+        $table->addColumn('id', 'integer', array('unsigned' => true, 'autoincrement' => true));
         $table->addColumn('class_id', 'integer', array('unsigned' => true));
         $table->addColumn('object_identifier', 'string', array('length' => 100));
         $table->addColumn('parent_object_identity_id', 'integer', array('unsigned' => true, 'notnull' => false));
@@ -153,7 +153,7 @@ final class Schema extends BaseSchema
     {
         $table = $this->createTable($this->options['sid_table_name']);
 
-        $table->addColumn('id', 'integer', array('unsigned' => true, 'autoincrement' => 'auto'));
+        $table->addColumn('id', 'integer', array('unsigned' => true, 'autoincrement' => true));
         $table->addColumn('identifier', 'string', array('length' => 200));
         $table->addColumn('username', 'boolean');
 
